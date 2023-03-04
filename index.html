@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
+<html lang="en"  class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="output.css">
+    
+    <link rel="icon" type="image/x-icon" href="./src/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ffd3bb53f9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark')
+      }
+    </script>
+</head>
+<body class="overflow-x-hidden font-sans transition-colors duration-500 scroll-smooth dark:bg-stone-800" id="body">
+  <div id="preloader" class="fixed top-0 left-0 flex items-center justify-center w-screen h-full overflow-hidden bg-gray-300 z-100 dark:bg-gray-900">
+    <span class="loader"></span>
+  </div>
+    <!-- <img class="absolute object-contain w-screen h-auto -z-10" src="./src/images/bg-img-light.svg"> -->
+      <div class="-skew-y-6 w-screen h-1.1screen -mt-12 shadow-3xl bg-main-blue dark:bg-main-blue-200 -z-50 lg:-mt-32 xl:-mt-40"></div>
+      <nav class="px-4 sm:px-4 py-2.5 z-50 w-screen h-screen flex flex-col absolute top-0 mt-3">
+        <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <!-- logo -->
+            <img class="h-16 drop-shadow-2xl" alt="Kenneth Logo" src="./src/icons/logo.svg">
+            <!-- small screen button -->
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-black rounded-lg md:hidden hover:bg-main-blue-200 focus:outline-none focus:ring-2 focus:ring-black dark:text-black dark:hover:bg-gray-700 dark:focus:ring-black" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <!-- links -->
+            <div class="hidden w-full bg-main-blue dark:bg-main-blue-200 md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col items-center p-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <li class="mt-2">
+                        <a class="block py-2 pl-3 pr-4 hover:font-bold md:hover:bg-transparent md:border-0 md:p-0 dark:text-white" href="#div-info">about</a>
+                    </li>
+                    <li class="mt-2">
+                        <a class="block py-2 pl-3 pr-4 hover:font-bold md:hover:bg-transparent md:border-0 md:p-0 dark:text-white" href="#projects">projects</a>
+                    </li>
+                    <li class="mt-2">
+                        <a  href="#contact-me" class="block px-5 py-3 duration-300 border border-black rounded-full drop-shadow-md hover:bg-black hover:text-white active:opacity-70 active:scale-90 dark:text-white dark:border-white dark:hover:border-black">contact me</a>
+                    </li>
+                    <li class="mt-2">
+                        <button id="theme-toggle" type="button" class="h-10 duration-300 ease-in-out hover:rotate-180 hover:scale-110">
+                            <img id="theme-toggle-dark-icon" class="hidden" src="./src/icons/dark-mode-toggle-off.svg">
+                            <img id="theme-toggle-light-icon" class="hidden" src="./src/icons/dark-mode-toggle-on.svg">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+
+      <!-- hero -->
+      <div class="absolute flex flex-col py-3 mx-6 mt-6 top-24 h-3/4 sm:mx-8 lg:py-0 lg:flex-row lg:mx-40 lg:z-50">
+        <div class="text-6xl font-semibold lg:basis-1/2 sm:text-7xl xl:text-9xl lg:my-auto dark:text-white">
+          <p data-aos="fade-up">web design</p>
+          <p data-aos="fade-up" data-aos-delay="300">& frontend</p>
+        </div>
+        <div class="text-justify lg:basis-1/2 md:px-8 lg:my-auto dark:text-white">
+          <p data-aos="fade-left" class="pt-8 text-base sm:text-lg md:text-xl xl:text-2xl">
+            I am <span class="font-semibold">Kenneth Carl Ericko David</span>, a Mobile and Desktop UI/UX Designer and Front-end Web Developer
+            proficient in creating visually appealing and user-friendly designs using React.
+          </p>
+          <a href="./src/Kenneth-Carl-Ericko-David-Resume.pdf" download>
+            <button class="relative px-8 py-4 overflow-hidden font-medium duration-300 bg-gray-900 rounded-full shadow-md group sm:px-12 sm:py-6 mt-14 hover:bg-slate-50 hover:text-black active:opacity-70 active:scale-90">
+              <div class="absolute inset-0 h-0 bg-white transition-all duration-[300ms] ease-out group-hover:h-full"></div>
+              <span class="relative text-white group-hover:text-black">Download CV</span>
+            </button>
+          </a>
+          
+        </div>
+      </div>
+      <!-- hero end -->
+      <!-- Skills -->
+      <div id="div-info" class="w-auto h-auto mx-6 my-24 sm:mx-8 lg:mx-40 lg:my-36 xl:my-56 scroll-mt-20">
+        <h1 data-aos="fade-up" class="mb-8 text-4xl font-semibold text-end lg:mb-14 md:text-6xl dark:text-white">skills<span class="text-main-blue dark:text-main-blue-100">.</span></h1>
+        <ul>
+          <li data-aos="fade-up" data-aos-delay="100" class="flex mb-3 xl:mb-6">
+            <div class="mr-6 text-xl font-medium text-gray-400">
+              01
+            </div>
+            <div class="text-2xl font-medium dark:text-white">
+              UI/UX Design
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="200" class="flex mb-3 xl:mb-6">
+            <div class="mr-6 text-xl font-medium text-gray-400">
+              02
+            </div>
+            <div class="text-2xl font-medium dark:text-white">
+              Frontend Web Development
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="300" class="flex">
+            <div class="mr-6 text-xl font-medium text-gray-400">
+              03
+            </div>
+            <div class="text-2xl font-medium dark:text-white">
+              Graphics Design
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Skills End -->
+      <!-- Personal Info -->
+      <div class="flex flex-col flex-wrap h-auto px-8 py-20 text-center bg-gray-200 shadow-md sm:flex-row lg:flex-nowrap dark:bg-neutral-900">
+          <div class="flex flex-col py-3 my-auto sm:basis-1/2 sm:py-5">
+            <p data-aos="fade-up" class="mb-2 text-5xl font-medium text-black lg:text-7xl dark:text-white">
+              500+
+            </p>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-sm font-normal text-black lg:text-base dark:text-white">
+              hours of internships
+            </p>
+          </div>
+          <div class="flex flex-col py-3 my-auto sm:basis-1/2 sm:py-5">
+            <p data-aos="fade-up" data-aos-delay="200" class="mb-2 text-5xl font-medium text-black lg:text-7xl dark:text-white">
+              2
+            </p>
+            <p data-aos="fade-up" data-aos-delay="300" class="text-sm font-normal text-black lg:text-base dark:text-white">
+              react projects
+            </p>
+          </div>
+          <div class="flex flex-col py-3 my-auto sm:basis-1/2 sm:py-5">
+            <p data-aos="fade-up" data-aos-delay="400" class="mb-2 text-5xl font-medium text-black lg:text-7xl dark:text-white">
+              13
+            </p>
+            <p data-aos="fade-up" data-aos-delay="500" class="text-sm font-normal text-black lg:text-base dark:text-white">
+              relevant certificates
+            </p>
+          </div>
+          <div class="flex flex-col py-3 my-auto sm:basis-1/2 sm:py-5">
+            <p data-aos="fade-up" data-aos-delay="600" class="mb-2 text-5xl font-medium text-black lg:text-7xl dark:text-white">
+              4
+            </p>
+            <p data-aos="fade-up" data-aos-delay="700" class="text-sm font-normal text-black lg:text-base dark:text-white">
+              years of bachelor’s degree
+            </p>
+          </div>
+      </div>
+      <!-- Personal Info End -->
+      <!-- Projects -->
+      <div class="h-auto mx-8 my-16 lg:mx-40 lg:my-36 scroll-mt-20" id="projects">
+        <h1 data-aos="fade-up" data-aos-delay="400" class="mb-8 text-4xl font-semibold text-start md:text-6xl lg:mb-14 dark:text-white">projects<span class="text-main-blue-100">.</span></h1>
+        <div class="grid w-full grid-cols-1 sm:grid-cols-2">
+          <!-- Dulo -->
+          <a data-aos="fade-up" class="relative w-full mb-2 shadow-md group rounded-xl sm:m-3 sm:w-auto md:rounded-3xl" href="./project-dulo.html" target="_blank">
+            <img class="w-full rounded-xl md:rounded-3xl" src="./src/images/project-dulo.png">
+            <div class="absolute bottom-0 left-0 right-0 w-full p-3 overflow-hidden transition-all duration-500 bg-gray-900 opacity-0 rounded-xl h-5/6 group-hover:h-full group-hover:opacity-100 lg:p-8 md:rounded-3xl">
+              <p class="text-xs font-normal text-white text-start opacity-70 xl:text-base">Unity Game Engine / C# / Adobe Illustrator</p>
+              <h2 class="pt-4 text-lg font-semibold text-white text-start xl:text-4xl">Dulo: PC Game</h2>
+              <div class="absolute bottom-0 left-0 w-full bg-gray-300 h-1/5 dark:bg-black">
+                <span class="flex flex-row items-center justify-end h-full text-xs md:text-base dark:text-white">more info<img class="h-6 ml-2 mr-6" src="./src/icons/arrow.svg"></span>
+              </div>
+            </div>
+          </a>
+          <!-- Church UI -->
+          <a data-aos="fade-up" data-aos-delay="100" class="relative w-full mb-2 shadow-md group rounded-xl sm:m-3 sm:w-auto md:rounded-3xl" href="./project-church.html" target="_blank">
+            <img class="w-full rounded-xl md:rounded-3xl" src="./src/images/project-church-ui.png">
+            <div class="absolute bottom-0 left-0 right-0 w-full p-3 overflow-hidden transition-all duration-500 opacity-0 rounded-xl bg-slate-700 h-5/6 group-hover:h-full group-hover:opacity-100 lg:p-8 md:rounded-3xl">
+              <p class="text-xs font-normal text-white text-start opacity-70 xl:text-base">Adobe XD / Adobe Illustrator</p>
+              <h2 class="pt-4 text-lg font-semibold text-white text-start xl:text-4xl">Church Website UI</h2>
+              <div class="absolute bottom-0 left-0 w-full bg-gray-300 h-1/5 dark:bg-black">
+                <span class="flex flex-row items-center justify-end h-full text-xs md:text-base dark:text-white">more info<img class="h-6 ml-2 mr-6" src="./src/icons/arrow.svg"></span>
+              </div>
+            </div>
+          </a>
+          <!-- Studify -->
+          <a data-aos="fade-up" class="relative w-full mb-2 shadow-md group rounded-xl sm:m-3 sm:w-auto md:rounded-3xl" href="./project-studify.html" target="_blank">
+            <img class="w-full rounded-xl md:rounded-3xl" src="./src/images/project-studify-ui.png">
+            <div class="absolute bottom-0 left-0 right-0 w-full p-3 overflow-hidden transition-all duration-500 bg-orange-500 opacity-0 rounded-xl dark:bg-orange-900 h-5/6 group-hover:h-full group-hover:opacity-100 lg:p-8 md:rounded-3xl">
+              <p class="text-xs font-normal text-white text-start opacity-70 xl:text-base">Adobe XD / Adobe Illustrator</p>
+              <h2 class="pt-4 text-lg font-semibold text-white text-start xl:text-4xl">Studify Mobile Learning App UI</h2>
+              <div class="absolute bottom-0 left-0 w-full bg-gray-300 h-1/5 dark:bg-black">
+                <span class="flex flex-row items-center justify-end h-full text-xs md:text-base dark:text-white">more info<img class="h-6 ml-2 mr-6" src="./src/icons/arrow.svg"></span>
+              </div>
+            </div>
+          </a>
+          <!-- Hails -->
+          <a data-aos="fade-up" data-aos-delay="100" class="relative w-full mb-2 shadow-md group rounded-xl sm:m-3 sm:w-auto md:rounded-3xl" href="./project-hails.html" target="_blank">
+            <img class="w-full rounded-xl md:rounded-3xl" src="./src/images/project-hails.png">
+            <div class="absolute bottom-0 left-0 right-0 w-full p-3 overflow-hidden transition-all duration-500 opacity-0 rounded-xl bg-main-blue-100 dark:bg-blue-900 h-5/6 group-hover:h-full group-hover:opacity-100 lg:p-8 md:rounded-3xl">
+              <p class="text-xs font-normal text-white text-start opacity-70 xl:text-base">Python / ReactJS / HTML / CSS / JavaScript / Figma</p>
+              <h2 class="pt-4 text-lg font-semibold text-white text-start xl:text-4xl">HAILS: Sign Language Learning Web Application</h2>
+              <div class="absolute bottom-0 left-0 w-full bg-gray-300 h-1/5 dark:bg-black">
+                <span class="flex flex-row items-center justify-end h-full text-xs md:text-base dark:text-white">more info<img class="h-6 ml-2 mr-6" src="./src/icons/arrow.svg"></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Projects End -->
+      <!-- Tech Stack -->
+      <div class="static left-0 right-0 w-screen mx-0 my-16 lg:my-36">
+        <h1 data-aos="fade-up" class="mb-8 text-4xl font-semibold text-center md:text-6xl lg:mb-14 dark:text-white">tech stack<span class="text-main-blue dark:text-main-blue-100">.</span></h1>
+        <div class="grid w-full grid-cols-3 md:grid-cols-6">
+          <div class="flex flex-col items-center justify-center p-6 bg-main-orange aspect-square">
+            <img data-aos="fade-up" class="h-9 sm:h-16" src="./src/icons/html.png">
+            <p data-aos="fade-up" data-aos-delay="50" class="py-2 text-xs font-bold text-center text-white sm:text-base">HTML</p>
+          </div>
+          <div class="flex flex-col items-center justify-center p-6 bg-main-blue-100 aspect-square">
+            <img data-aos="fade-up" data-aos-delay="100" class="h-9 sm:h-16" src="./src/icons/css.png">
+            <p data-aos="fade-up" data-aos-delay="150" class="py-2 text-xs font-bold text-center text-white sm:text-base">CSS</p>
+          </div>
+          <div class="flex flex-col items-center justify-center p-6 bg-main-yellow aspect-square">
+            <img data-aos="fade-up" data-aos-delay="200" class="h-9 sm:h-16" src="./src/icons/js.png">
+            <p data-aos="fade-up" data-aos-delay="250" class="py-2 text-xs font-bold text-center text-white sm:text-base">JavaScript</p>
+          </div>
+          <div class="flex flex-col items-center justify-center p-6 bg-main-blue-200 aspect-square">
+            <img data-aos="fade-up" data-aos-delay="300" class="h-9 sm:h-16" src="./src/icons/python.png">
+            <p data-aos="fade-up" data-aos-delay="350" class="py-2 text-xs font-bold text-center text-white sm:text-base">Python</p>
+          </div>
+          <div class="flex flex-col items-center justify-center p-6 bg-main-green aspect-square">
+            <img data-aos="fade-up" data-aos-delay="400" class="h-9 sm:h-16" src="./src/icons/tailwind.png">
+            <p data-aos="fade-up" data-aos-delay="450" class="py-2 text-xs font-bold text-center text-white sm:text-base">Tailwind</p>
+          </div>
+          <div class="flex flex-col items-center justify-center p-6 bg-main-blue aspect-square">
+            <img data-aos="fade-up" data-aos-delay="500" class="h-9 sm:h-16" src="./src/icons/react.png">
+            <p data-aos="fade-up" data-aos-delay="550" class="py-2 text-xs font-bold text-center text-white sm:text-base">ReactJS</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Stack End -->
+      <!-- Get In Touch -->
+      <form class="h-auto mx-8 mt-16 mb-16 lg:mx-20 lg:mr-36 lg:ml-60 lg:mb-32 scroll-mt-20" name="contact-me" id="contact-me" data-netlify="true" method="post" onSubmit="submit">
+          <div class="flex flex-row mb-8 lg:mb-14">
+            <h1 class="text-4xl font-semibold md:text-6xl dark:text-white">get in touch</h1>
+            <img class="w-12 h-12 my-auto ml-4 animate-wave" src="./src/icons/hand.svg">
+          </div>
+          
+          <div class="flex flex-col gap-6">
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 max-h-max">
+              <div>
+                <label for="name" class="font-medium dark:text-white">Your Name</label>
+                <input required id="name" name="name" class="w-full px-3 py-4 border-0 rounded-lg bg-neutral-100 placeholder:opacity-50 dark:bg-slate-600 dark:placeholder:text-gray-900 dark:text-white" type="text" placeholder="enter your name">
+              </div>
+              <div>
+                <label for="email" class="mb-2 font-medium dark:text-white">Your Email</label>
+                <input required id="email" name="email" class="w-full px-3 py-4 border-0 rounded-lg bg-neutral-100 placeholder:opacity-50 dark:bg-slate-600 dark:placeholder:text-gray-900 dark:text-white" type="email" placeholder="enter your email address">
+              </div>
+            </div>
+            <div>
+              <label for="message" class="mb-2 font-medium dark:text-white">Your Message</label>
+              <input required id="message" name="message" class="w-full px-3 pt-4 pb-20 border-0 rounded-lg bg-neutral-100 placeholder:opacity-50 dark:bg-slate-600 dark:placeholder:text-gray-900 dark:text-white" type="text" placeholder="enter your message">
+            </div>
+          </div>
+          <input type="submit" value="Send Email" class="px-8 py-4 mt-4 duration-300 border border-black rounded-full drop-shadow-md hover:bg-black hover:text-white active:opacity-70 active:scale-90 dark:text-white dark:border-white dark:hover:border-black">
+      </form>
+      <!-- Get In Touch End -->
+
+      <!-- Footer -->
+      <footer class="grid w-screen grid-cols-1 py-10 align-middle bg-stone-900 justify-items-center lg:grid-cols-3 dark:bg-black">
+        <img class="h-24 drop-shadow-md" alt="Kenneth Logo" src="./src/icons/logo.svg">
+        <div>
+          <ul class="flex flex-row gap-4 text-white lg:flex-col">
+            <li class="whitespace-nowrap">
+              <a href="mailto: davidkennethcarlericko+work@gmail.com"  target="_blank" rel="noopener noreferrer" class="text-lg font-normal">
+                <i class="shadow-md fa-solid fa-envelope fa-lg text-main-blue"></i>
+                <span class="hidden ml-2 md:inline">davidkennethcarlericko+work@gmail.com</span>
+              </a>
+            </li>
+            <li class="whitespace-nowrap">
+              <a href="https://www.linkedin.com/in/kenneth-carl-ericko-david"  target="_blank" rel="noopener noreferrer" class="text-lg font-normal">
+                <i class="shadow-md fa-brands fa-linkedin fa-lg text-main-blue"></i>
+                <span class="hidden ml-2 md:inline">www.linkedin.com/in/kenneth-carl-ericko-david</span>
+              </a>
+            </li>
+            <li class="whitespace-nowrap">
+              <a href="https://github.com/KCERDavid"  target="_blank" rel="noopener noreferrer" class="text-lg font-normal">
+                <i class="shadow-md fa-brands fa-square-github fa-lg text-main-blue"></i>
+                <span class="hidden ml-2 md:inline">github.com/KCERDavid</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a href="#body" class="my-auto">
+          <img class="w-12 mt-6 animate-bounce lg:mt-0" src="./src/icons/btn-top.svg">
+        </a>
+      </footer>
+      <!-- Footer End -->
+
+
+
+
+
+<script src="./script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  window.onload = function() {
+  document.getElementById("preloader").style.display = "none";
+}
+  AOS.init();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+</body>
+</html>
